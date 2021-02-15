@@ -30,15 +30,16 @@ public class Chess : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!ChessManager.chessCanPlay)
-        {
-            return;
-        }
+        
         //GetComponent<UnityEngine.UI.Image>().color;
         if (ChessManager.endGameClean)
         {
             setUnable();
             ChessManager.chessLogicManager.RemoveChess(x, y);
+            return;
+        }
+        if (!ChessManager.chessCanPlay)
+        {
             return;
         }
         Player.BlackWhite curruentPlay = ChessManager.turnManager.whoseTurn.bw;

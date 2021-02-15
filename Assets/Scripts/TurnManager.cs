@@ -11,19 +11,7 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int rand = Random.Range(0, 1);
-        if (rand == 0)
-        {
-            player1.bw = Player.BlackWhite.BLACK;
-            player2.bw = Player.BlackWhite.WHITE;
-            whoseTurn = player1;
-        }
-        else
-        {
-            player1.bw = Player.BlackWhite.WHITE;
-            player2.bw = Player.BlackWhite.BLACK;
-            whoseTurn = player2;
-        }
+        Initial();
     }
 
     // Update is called once per frame
@@ -49,5 +37,22 @@ public class TurnManager : MonoBehaviour
     {
         ChangeTurn();
         test++;
+    }
+
+    public void Initial()
+    {
+        int rand = Random.Range(0, 1);
+        if (rand == 0)
+        {
+            player1.bw = Player.BlackWhite.BLACK;
+            player2.bw = Player.BlackWhite.WHITE;
+            whoseTurn = player1;
+        }
+        else
+        {
+            player1.bw = Player.BlackWhite.WHITE;
+            player2.bw = Player.BlackWhite.BLACK;
+            whoseTurn = player2;
+        }
     }
 }

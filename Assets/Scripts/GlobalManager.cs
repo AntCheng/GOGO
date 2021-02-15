@@ -9,6 +9,7 @@ public class GlobalManager : MonoBehaviour
     public GameObject endGameBoard;
     public Option Option;
     public ChessManager chessManager;
+    public TurnManager turnManager;
     public Button confirmbutton;
 
     // Start is called before the first frame update
@@ -64,10 +65,14 @@ public class GlobalManager : MonoBehaviour
         chessManager.endGameClean = false;
     }
 
+    //This is call when the game restart 
+    // (call when in counting board player agree to play again)
     public void AllInitial()
     {
         chessManager.Initial();
         chessManager.chessLogicManager.Initial();
+        Option.GiveListener();
+        turnManager.Initial();
     }
    
 }
