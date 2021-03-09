@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+   //try
     public enum BlackWhite
     {
         BLACK,
@@ -21,4 +22,11 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    //this is for client DB method
+    public void rpcDB(int posX, int posY)
+    {
+        GameObject.Find("ChessManager").GetComponent<ChessManager>().chesses[ChessLogic.XYtoIndex(posX,posY)].GetComponent<Chess>().MDmethod();
+    }
+    
 }

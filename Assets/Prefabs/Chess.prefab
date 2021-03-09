@@ -46,7 +46,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544162476235156835}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 544162476585848234}
   - component: {fileID: 1385970896}
   - component: {fileID: 1241016177789157547}
+  - component: {fileID: 1073061827}
   m_Layer: 0
   m_Name: Chess
   m_TagString: Untagged
@@ -145,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9354c988dd84d419c6d335c040000d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   x: 0
   y: 0
 --- !u!136 &1241016177789157547
@@ -161,6 +164,22 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1073061827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544162476585848235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &544162477309040738
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class ChessManager : MonoBehaviour
     private Queue<ChessLogic> chessRecord = new Queue<ChessLogic>();
     public TurnManager turnManager;
     public ChessLogicManager chessLogicManager = new ChessLogicManager();
+    //public Player player;
 
     public bool endGameClean =false;
     public bool chessCanPlay = true;
@@ -25,6 +26,7 @@ public class ChessManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //player = NetworkClient.connection.identity.GetComponent<PlayerManager>();
         float z = chesses[0].transform.position.z;
         Quaternion rot = chesses[0].transform.rotation;
         //testChess.transform.SetPositionAndRotation(new Vector3(0, 0, z), rot);

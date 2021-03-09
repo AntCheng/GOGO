@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chess : MonoBehaviour
+public class Chess : NetworkBehaviour //network behaviour
 {
     private ChessManager ChessManager;
     public int x;
@@ -30,7 +31,31 @@ public class Chess : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (isClientOnly)
+        {
+            if (ChessManager.turnManager.whoseTurn.bw == Player.BlackWhite.WHITE)
+            {
+               MDmethod();
+               //serveronly MDmethod()
+               //player.callMD(pox.x,pos.y)
+               //GameObject.getComponent<player>().
+            }
+        }
+        else
+        {
+            if(ChessManager.turnManager.whoseTurn.bw == Player.BlackWhite.BLACK)
+            {
+                MDmethod();
+               
+            }
+        }
         
+
+    }
+
+    
+    public void MDmethod()
+    {
         //GetComponent<UnityEngine.UI.Image>().color;
         if (ChessManager.endGameClean)
         {
@@ -43,8 +68,8 @@ public class Chess : MonoBehaviour
             return;
         }
         Player.BlackWhite curruentPlay = ChessManager.turnManager.whoseTurn.bw;
-        
-        if (ChessManager.chessLogicManager.IsValidPlay(x,y,curruentPlay)) //the chess would be played in this step
+
+        if (ChessManager.chessLogicManager.IsValidPlay(x, y, curruentPlay)) //the chess would be played in this step
         {
             if (ChessManager.turnManager.whoseTurn.bw == Player.BlackWhite.BLACK)
             {
@@ -63,6 +88,8 @@ public class Chess : MonoBehaviour
         }
         
     }
+
+   
 
     public void InitialState()
     {
